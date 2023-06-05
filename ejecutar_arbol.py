@@ -23,6 +23,9 @@ busquedas["busqueda_mod"] = busquedas["busqueda_mod"].str.replace("0", "O").str.
 busquedas["busqueda"] = busquedas["busqueda"].str.replace("0", "O").str.upper().str.replace(r'\s+', ' ', regex=True).str.strip()
 
 exacto_encontrados = busquedas[(busquedas["busqueda"] == busquedas["busqueda_mod"]) & (busquedas["resultados_bd"] > 0)]
+
+
+
 exacto_no_encontrados = busquedas[(busquedas["busqueda"] != busquedas["busqueda_mod"]) | (busquedas["resultados_bd"] == 0)]
 
 diccionario_encontrados = exacto_no_encontrados[(exacto_no_encontrados["busqueda"] != exacto_no_encontrados["busqueda_mod"]) & (exacto_no_encontrados["resultados_bd"] > 0)]
